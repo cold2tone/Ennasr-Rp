@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ennasr RP — Tunisian roleplay on Roblox</title>
+<meta name="description" content="Ennasr RP is a Tunisian roleplay server on Roblox. Join as police, civilian, medic and more.">
+<meta property="og:title" content="Ennasr RP">
+<meta property="og:description" content="Tunisian roleplay server on Roblox.">
+<meta property="og:image" content="logo.png">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d1411;
+  --ink-2:#141d19;
+  --ink-3:#1c2822;
+  --chalk:#f2efe8;
+  --stone:#8a9189;
+  --siren:#e3242b;
+  --line:rgba(242,239,232,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);color:var(--chalk);
+  font-family:"Instrument Sans",system-ui,sans-serif;
+  font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--siren);outline-offset:3px}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+
+/* nav */
+.nav{position:absolute;inset:0 0 auto 0;z-index:5;padding:22px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:Fraunces,serif;font-weight:600;font-size:20px;letter-spacing:.01em}
+.brand img{height:26px;width:auto}
+.nav ul{display:flex;gap:28px;list-style:none;font-size:15px}
+.nav ul a{text-decoration:none;color:rgba(242,239,232,.82);padding:6px 0;border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
+.nav ul a:hover{color:var(--chalk);border-color:var(--chalk)}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:13px 24px;border-radius:999px;
+  font-weight:600;font-size:16px;text-decoration:none;
+  background:var(--siren);color:#fff;border:0;cursor:pointer;
+  transition:transform .15s,background .2s;
+}
+.btn:hover{background:#c91d24;transform:translateY(-1px)}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--chalk)}
+.btn.ghost:hover{background:rgba(242,239,232,.08);border-color:rgba(242,239,232,.4)}
+
+/* hero */
+.hero{
+  position:relative;min-height:100svh;display:flex;align-items:flex-end;
+  padding:150px 0 80px;overflow:hidden;isolation:isolate;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    radial-gradient(60% 55% at 82% 8%,rgba(227,36,43,.20) 0%,rgba(227,36,43,0) 70%),
+    radial-gradient(50% 50% at 8% 100%,rgba(242,239,232,.05) 0%,rgba(242,239,232,0) 70%),
+    var(--ink);
+}
+.hero-logo{width:min(820px,100%);margin-bottom:38px}
+.hero p.lead{
+  max-width:52ch;font-size:clamp(18px,2.1vw,21px);color:rgba(242,239,232,.9);margin-bottom:32px;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.live{
+  display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;
+  font-size:15px;color:rgba(242,239,232,.85);
+}
+.live i{
+  width:10px;height:10px;border-radius:50%;background:var(--siren);
+  box-shadow:0 0 0 0 rgba(227,36,43,.7);animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(227,36,43,.65)}
+  70%{box-shadow:0 0 0 12px rgba(227,36,43,0)}
+  100%{box-shadow:0 0 0 0 rgba(227,36,43,0)}
+}
+
+/* sections */
+section{padding:104px 0}
+h2{
+  font-family:Fraunces,serif;font-weight:600;
+  font-size:clamp(32px,4.4vw,52px);line-height:1.08;letter-spacing:-.015em;
+  margin-bottom:18px;max-width:18ch;
+}
+.sub{color:var(--stone);max-width:56ch;margin-bottom:48px}
+
+/* about */
+.about .grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about p{color:rgba(242,239,232,.82);margin-bottom:18px;max-width:58ch}
+.mark{padding:36px;border:1px solid var(--line);border-radius:6px;background:linear-gradient(180deg,var(--ink-2),var(--ink))}
+.mark img{width:100%;height:auto;opacity:.92}
+.facts{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.facts div{font-size:15px;color:var(--stone)}
+.facts b{display:block;color:var(--chalk);font-weight:600;font-size:17px}
+
+/* roles */
+.roles{background:var(--ink-2)}
+.role-list{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line)}
+.role{padding:30px 32px 30px 0;border-bottom:1px solid var(--line)}
+.role:nth-child(even){padding:30px 0 30px 32px;border-left:1px solid var(--line)}
+.role h3{font-family:Fraunces,serif;font-weight:600;font-size:24px;margin-bottom:6px}
+.role p{color:var(--stone);font-size:16px;max-width:44ch}
+
+/* rules */
+.rules ol{list-style:none;counter-reset:r;max-width:760px}
+.rules li{
+  counter-increment:r;position:relative;
+  padding:22px 0 22px 64px;border-bottom:1px solid var(--line);
+}
+.rules li::before{
+  content:counter(r);position:absolute;left:0;top:20px;
+  font-family:Fraunces,serif;font-size:30px;font-weight:600;color:var(--siren);
+}
+.rules li b{display:block;font-weight:600;margin-bottom:2px}
+.rules li span{color:var(--stone);font-size:16px}
+
+/* join */
+.join{background:var(--ink-3);text-align:left}
+.join .wrap{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.join h2{margin-bottom:10px}
+.join p{color:rgba(242,239,232,.75);max-width:48ch}
+.join .actions{display:flex;flex-direction:column;gap:12px}
+.join .btn{justify-content:center;min-width:240px}
+
+footer{padding:40px 0 56px;border-top:1px solid var(--line);color:var(--stone);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer img{height:22px;opacity:.7}
+
+/* responsive */
+@media (max-width:820px){
+  .nav ul{display:none}
+  .about .grid{grid-template-columns:1fr;gap:36px}
+  .role-list{grid-template-columns:1fr}
+  .role,.role:nth-child(even){padding:26px 0;border-left:0}
+  .join .wrap{grid-template-columns:1fr}
+  .join .btn{min-width:0;width:100%}
+  section{padding:76px 0}
+  .hero{padding-bottom:56px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .live i{animation:none}
+  .btn{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="skyline.png" alt="">Ennasr RP</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#roles">Roles</a></li>
+      <li><a href="#rules">Rules</a></li>
+      <li><a href="#join">Join</a></li>
+      <li><a href="/staff">Staff</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="live"><i></i>Server open. Patrol is running.</div>
+      <img class="hero-logo" src="logo.png" alt="Ennasr RP, with a skyline of Tunis landmarks">
+      <p class="lead">A Tunisian roleplay server on Roblox. Play police, medic, civilian or business owner in a city built around Tunisian streets, cars and dialect.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#join">Join the server</a>
+        <a class="btn ghost" href="#roles">See the roles</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="about" id="about">
+    <div class="wrap grid">
+      <div>
+        <h2>A city that feels like home</h2>
+        <p>Ennasr RP is built for Tunisian players. You roleplay in Darija, patrol streets that look familiar, and deal with the kind of situations you would actually run into.</p>
+        <p>Whether you want to chase suspects in a police cruiser or run a café on the corner, there is a place for you here.</p>
+        <div class="facts">
+          <div><b>Platform</b>Roblox</div>
+          <div><b>Language</b>Darija and Arabic</div>
+          <div><b>Community</b>Discord</div>
+        </div>
+      </div>
+      <div class="mark" aria-hidden="true"><img src="skyline.png" alt=""></div>
+    </div>
+  </section>
+
+  <section class="roles" id="roles">
+    <div class="wrap">
+      <h2>Pick your role</h2>
+      <p class="sub">Start as a civilian and apply for a department when you know the rules.</p>
+      <div class="role-list">
+        <div class="role"><h3>Police</h3><p>Patrol, traffic stops and arrests. Uniforms and cruisers included.</p></div>
+        <div class="role"><h3>Medic</h3><p>Respond to accidents and emergencies across the city.</p></div>
+        <div class="role"><h3>Civilian</h3><p>Own a car, find a job and build your character's story.</p></div>
+        <div class="role"><h3>Business</h3><p>Run a shop or café and serve other players.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rules" id="rules">
+    <div class="wrap">
+      <h2>Rules in short</h2>
+      <p class="sub">The full list is pinned in our Discord. These are the ones that matter most.</p>
+      <ol>
+        <li><b>Stay in character</b><span>Keep out-of-game talk out of the roleplay.</span></li>
+        <li><b>No random killing</b><span>Every fight needs a reason and a story behind it.</span></li>
+        <li><b>Respect everyone</b><span>No insults, hate or harassment. Staff decisions are final.</span></li>
+        <li><b>Follow staff</b><span>If a staff member gives an instruction, follow it and appeal later.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="join" id="join">
+    <div class="wrap">
+      <div>
+        <h2>Ready to patrol?</h2>
+        <p>Join our Discord to get the game link, read the full rules and apply for a role.</p>
+      </div>
+      <div class="actions">
+        <!-- TODO: replace # with your real links -->
+        <a class="btn" href="#" id="robloxLink">Play on Roblox</a>
+        <a class="btn ghost" href="https://discord.gg/gc8R4NnZ33" target="_blank" rel="noopener">Join the Discord</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="logo.png" alt="Ennasr RP">
+    <span>Ennasr RP is a fan-made roleplay community and is not affiliated with Roblox Corporation.</span>
+  </div>
+</footer>
+
+</body>
+</html>

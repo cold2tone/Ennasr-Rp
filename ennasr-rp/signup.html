@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Create account — Ennasr RP staff</title>
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="auth.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="/"><img src="skyline.png" alt="">Ennasr RP</a>
+    <a class="back" href="/">Back to site</a>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+    <p class="eyebrow">Staff portal</p>
+    <h1>Create your account</h1>
+    <p class="lead">One account per staff member. You'll use this to submit and update your weekly availability.</p>
+
+    <form id="f" novalidate>
+      <div class="field">
+        <label for="displayName">Your name</label>
+        <input id="displayName" type="text" maxlength="40" autocomplete="name" placeholder="How staff and admins will see you" required>
+      </div>
+      <div class="field">
+        <label for="username">Username</label>
+        <input id="username" type="text" maxlength="30" autocomplete="username" placeholder="lowercase, no spaces" required>
+        <span class="hint">Letters, numbers, dots, underscores. At least 3 characters.</span>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" type="password" minlength="6" autocomplete="new-password" placeholder="At least 6 characters" required>
+      </div>
+
+      <button class="btn" type="submit" id="go">Create account</button>
+      <p class="msg err" id="err" role="alert"></p>
+    </form>
+
+    <p class="switch">Already have an account? <a href="/login">Log in</a></p>
+  </div>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+$("f").addEventListener("submit", async e=>{
+  e.preventDefault();
+  $("err").textContent="";
+  const displayName=$("displayName").value.trim();
+  const username=$("username").value.trim().toLowerCase();
+  const password=$("password").value;
+  if(!displayName){$("err").textContent="Enter your name.";return;}
+  if(username.length<3){$("err").textContent="Username must be at least 3 characters.";return;}
+  if(password.length<6){$("err").textContent="Password must be at least 6 characters.";return;}
+
+  $("go").disabled=true; $("go").textContent="Creating...";
+  try{
+    const r=await fetch("/api/signup",{method:"POST",headers:{"content-type":"application/json"},
+      body:JSON.stringify({displayName,username,password})});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok) throw new Error(j.error||"Something went wrong.");
+    location.href="/staff";
+  }catch(err){
+    $("err").textContent=err.message;
+    $("go").disabled=false; $("go").textContent="Create account";
+  }
+});
+</script>
+</body>
+</html>
